@@ -1,0 +1,14 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard > div {
+  width: 50%;
+  padding: 10px;
+}
