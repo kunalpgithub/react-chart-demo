@@ -3,7 +3,7 @@ import './style.css';
 import _ from 'lodash';
 import { Bar } from 'react-chartjs-2';
 import RentedPerHour from './Components/RentedPerHour';
-import AvgAgeByLocation from './Components/RentedPerHour';
+import AvgAgeByLocation from './Components/AvgAgeByLocation';
 
 export type TripData = {
   tripduration: number;

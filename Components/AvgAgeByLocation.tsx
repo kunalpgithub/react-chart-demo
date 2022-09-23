@@ -5,11 +5,11 @@ import { TripData } from '../App';
 import _ from 'lodash';
 
 export default function AvgAgeByLocation(props: {
-  data: TripData[];
+  tripData: TripData[];
 }): JSX.Element {
   const [avgAgeData, setAvgAgeData] = React.useState<any>();
   React.useEffect(() => {
-    const avgAgeByLocation = _.chain(props.data)
+    const avgAgeByLocation = _.chain(props.tripData)
       .groupBy((item) => item.start_station_id)
       .map((value, key) => {
         return {
@@ -22,8 +22,6 @@ export default function AvgAgeByLocation(props: {
       })
       .value() as { key: string; itemsCount: number }[];
 
-    console.log('avgAgeByLocation' + avgAgeByLocation);
-
     setAvgAgeData({
       labels: avgAgeByLocation.map((m) => m.key),
       datasets: [
@@ -34,7 +32,7 @@ export default function AvgAgeByLocation(props: {
         },
       ],
     });
-  });
+  }, [props.tripData]);
   return (
     <div>
       {avgAgeData && (
